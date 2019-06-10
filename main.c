@@ -4,11 +4,13 @@
 #include "wave.h"
 
 byte buf[5]; // 4 char string buffer
+char filename[200]; //
 FILE *fp;
 FILE *pcm_data;
 
 int main(int argc, char *argv[])
 {
+    strcat(filename, argv[1]);
     struct riff_chunk riff = {"RIFF", 0, "WAVE"};
     struct fmt_chunk fmt = {"fmt "};
     struct data_chunk data = {"data"};
@@ -82,7 +84,8 @@ int main(int argc, char *argv[])
             printf("Readin PCM data error.\n");
             return 1;
         } else {
-            if ((pcm_data = fopen("PCM", "wb"))==NULL) {
+            strcat(filename, ".raw");
+            if ((pcm_data = fopen(filename, "wb"))==NULL) {
                 printf("Can't open the PCM file for write. Exit.\n");
                 return 1;
             }
