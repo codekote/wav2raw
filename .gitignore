@@ -1,5 +1,3 @@
 /.vscode/
-/main.dSYM/
-*.dSYM
 .DS_Store
 *.wav
