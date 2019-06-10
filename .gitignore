@@ -3,3 +3,5 @@
 *.wav
 *.raw
 main
+*.dSYM
+/*.dSYM/
