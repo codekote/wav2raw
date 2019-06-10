@@ -5,3 +5,5 @@
 main
 *.dSYM
 /*.dSYM/
+/main.dSYM/
+main.dSYM
