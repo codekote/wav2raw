@@ -1,1 +1,1 @@
-# WAV to RAW
+# WAV2RAW export a clean PCM signal byte by byte to *.raw file in same directory.
