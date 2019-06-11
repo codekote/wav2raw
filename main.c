@@ -6,8 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-    char buf[5]; // 4 char string buffer
-    char filename[200]; //
+    char filename[200];
     FILE *fp;
     FILE *pcm_data;
 
@@ -26,13 +25,11 @@ int main(int argc, char *argv[])
         fprintf(stderr,"Can't read RIFF chunk or EOF is met. Exit.\n");
         return 1;
     } else {
-        // memccpy(buf, riff.id, '\0', 4);
         if (strncmp("RIFF", riff.id, sizeof(riff.id))) {
             fprintf(stderr,"File format is not RIFF. Exit.\n");
             return 1;
         }
-        memccpy(buf, riff.type, '\0', 4);
-        if (strcmp(buf, "WAVE")!=0) {
+        if (strncmp("WAVE", riff.type,sizeof(riff.type))) {
             fprintf(stderr,"File format is not WAVE. Exit.\n");
             return 1;
         }
@@ -43,11 +40,11 @@ int main(int argc, char *argv[])
         fprintf(stderr,"Can't read fmt chunk or EOF is met. Exit.\n");
         return 1;
     } else {
-        memccpy(buf, fmt.id, '\0', 4);
-        if (strcmp(buf, "fmt ")!=0) {
+        if (strncmp("fmt ", fmt.id, sizeof(fmt.id))) {
             fprintf(stderr,"File have no fmt chunk. Exit.\n");
             return 1;
         }
+
     }
     
     // Reading fmt Sample Format Info
@@ -66,7 +63,7 @@ int main(int argc, char *argv[])
         fprintf(stderr,"Error of reading data chunk. Exit.\n");
         return 1;
     } else {
-        while (memccpy(buf, data.id, '\0', 4), strcmp(buf, "data")!=0) {
+        while (strncmp("data", data.id, sizeof(data.id))) {
             fseek(fp, data.size, 1); // перемещаем указатель файла на конец чанка (его размер)
             fread(&data, sizeof(byte), 8, fp);
         }
