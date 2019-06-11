@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     printf("Compression: %" PRIu16 "\n", fmt.compression);
     printf("Channels: %" PRIu16 "\n", fmt.chanels);
     printf("Sample Rate: %" PRIu32 "\n", fmt.sample_rate);
-    printf("Bit Rate: %" PRIi32 "\n", fmt.bit_per_sample);
+    printf("Bit Rate: %" PRIu32 "\n", fmt.bit_per_sample);
 
     // Reading data/some chunk
     if (fread(&data, sizeof(byte), 8, fp)!=8) {
