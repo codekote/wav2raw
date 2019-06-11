@@ -4,9 +4,9 @@ http://truelogic.org/wordpress/2015/09/04/parsing-a-wav-file-in-c/
 http://www.dragonwins.com/domains/getteched/wav/index.htm
 */
 
-typedef char                byte;  // 1 byte \ 8 bit 
-typedef short int           word;  // 2 byte \ 16 bit
-typedef unsigned int        dword; // 4 byte \ 32 bit
+typedef char        byte;  // 1 byte \ 8 bit 
+typedef uint16_t    word;  // 2 byte \ 16 bit
+typedef uint32_t    dword; // 4 byte \ 32 bit
 
 struct riff_chunk
 {
