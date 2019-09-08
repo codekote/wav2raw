@@ -6,3 +6,5 @@
 - stereo/mono
 - 8/16/24/32 bit rate
 - 24k/44.1/48/96/kHz sample rate
+
+It's take single argument of WAV file in a same directory and put a clean signal as a *.raw file.
